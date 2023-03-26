@@ -19,6 +19,14 @@ Conversational AI sandbox
 * [Alpaca 7B 4bit](https://huggingface.co/ozcur/alpaca-native-4bit) 4 bit quantized weights.
 * [Alpaca 30B 4bit](https://huggingface.co/elinas/alpaca-30b-lora-int4), 4 bit, trained using LoRA [4].
 
+### Install GPTQ-for-LLaMa
+
+> Assumes requirements.txt has been installed.
+
+1. Clone GPTQ-for-LLaMA: `git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa.git`
+2. In GPTQ folder: `CUDA_PATH=/usr/local/cuda-11.7 python setup_cuda.py install` (assuming project environment is active)
+3. Test installation: `CUDA_VISIBLE_DEVIES=0 python test_kernel.py`
+
 ## References
 
 1. Hugo Touvron, et al., LLaMA: Open and Efficient Foundation Language Models, https://arxiv.org/abs/2302.13971
