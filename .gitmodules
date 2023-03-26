@@ -1,0 +1,3 @@
+[submodule "third_party/gptq"]
+	path = third_party/gptq
+	url = https://github.com/IST-DASLab/gptq.git
