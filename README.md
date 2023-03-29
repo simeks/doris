@@ -23,7 +23,7 @@ Conversational AI sandbox
 
 > Assumes requirements.txt has been installed.
 
-1. Clone GPTQ-for-LLaMA: `git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa.git`
+1. Clone GPTQ-for-LLaMA: `git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa.git` into `third_party` folder. 
 2. In GPTQ folder: `CUDA_PATH=/usr/local/cuda-11.7 python setup_cuda.py install` (assuming project environment is active)
 3. Test installation: `CUDA_VISIBLE_DEVIES=0 python test_kernel.py`
 
