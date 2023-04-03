@@ -8,6 +8,9 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sse_starlette.sse import EventSourceResponse
 
+from talk import Doris
+
+doris = Doris()
 app = FastAPI()
 
 # origins = [
@@ -68,12 +71,11 @@ def login(payload: dict[str, str]):
 
 @app.post('/api/message')
 async def message(payload: dict[str, str], user: str = Depends(current_user)):
+    print(payload)
     async def event_generator():
-        for c in payload['message']:
+        for c in doris.instruct('You are a friendly AI assistant, help the user. Keep your replies short.', payload['message']):
             yield json.dumps({'chunk': c})
-            await asyncio.sleep(1)
     return EventSourceResponse(event_generator())
-
 
 if __name__ == '__main__':
     import uvicorn
