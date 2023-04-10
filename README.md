@@ -4,6 +4,10 @@ Conversational AI sandbox
 
 ## Notes
 
+### Vicuna
+
+Vicuna-13B is a fine-tuned version of LLaMA. [5]
+
 ### LLaMA/Alpaca
 
 * LLaMA [1]: 65B LLM by Meta
@@ -36,3 +40,5 @@ Conversational AI sandbox
 3. Elias Frantar, et al., GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers, https://arxiv.org/abs/2210.17323
 
 4. Edward J. Hu, et al., LoRA: Low-Rank Adaptation of Large Language Models, https://arxiv.org/abs/2106.09685
+
+5. https://vicuna.lmsys.org/
