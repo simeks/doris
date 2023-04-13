@@ -7,5 +7,5 @@ task_queues = (
 
 task_routes = {
     'doris.tasks.*': {'queue': 'tasks'},
-    'doris.gpu_tasks.*': {'queue': 'gpu_tasks'},
+    'doris.tasks.gpu.*': {'queue': 'gpu_tasks'},
 }
