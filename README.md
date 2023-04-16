@@ -6,7 +6,7 @@ Conversational AI sandbox
 
 ### Vicuna
 
-Vicuna-13B is a fine-tuned version of LLaMA. [5]
+Vicuna-13B is a fine-tuned version of LLaMA [5].
 
 ### LLaMA/Alpaca
 
