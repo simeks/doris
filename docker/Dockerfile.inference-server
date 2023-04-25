@@ -1,25 +1,24 @@
 # Use the official Python image as the base image
-FROM python:3.10
+FROM nvidia/cuda:12.1.0-base-ubuntu20.04
 
 # Set the working directory
 WORKDIR /app
 
-
 # Copy the requirements.txt file into the container
-COPY requirements.txt .
+COPY ./inference/requirements.txt .
 
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN useradd -m doris
-RUN chown -R doris:doris /app
-USER doris
+RUN useradd -m doris-inference
+RUN chown -R doris-inference:doris-inference /app
+USER doris-inference
 
 # Copy the rest of the application code into the container
-COPY . .
+COPY ./inference .
 
 # Expose the port the app runs on
-EXPOSE 8000
+EXPOSE 8001
 
 # Start the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "inference_server.py"]

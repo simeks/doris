@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    build: docker/Dockerfile.doris
     command: >
       sh -c "uvicorn doris.api.main:app --host 0.0.0.0 --port 8000
       $(if [ \"$AUTORELOAD\" = \"true\" ]; then echo '--reload'; fi)"
@@ -20,7 +20,7 @@ services:
     image: redis:6
 
   worker:
-    build: .
+    build: docker/Dockerfile.doris
     command: celery -A doris.workers.worker worker -Q tasks -n worker@%h --loglevel=info --concurrency=1
     volumes:
       - .:/app
@@ -29,12 +29,3 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379/0
 
-  gpu_worker:
-    build: .
-    command: celery -A doris.workers.worker_gpu worker -Q gpu_tasks -n gpu_worker@%h --loglevel=info --concurrency=1
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-    environment:
-      - REDIS_URL=redis://redis:6379/0
